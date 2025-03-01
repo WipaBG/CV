@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Web CV Form</title>
-    <link rel="stylesheet" href="../assests/css/create.css">
+    <link rel="stylesheet" href="../assests//css/create.css">
     <script defer src="../assests//js/home.js"></script>
 </head>
 
 <body>
 
 	<h3>Click on the fields to fill in your information.</h3>
-		<form class="main" action="index.php?action=createCV" method= "POST">
+		<form class="main" action="../index.php?action=createCV" method= "POST">
 			<h1 id="name"> 
 		<input type="text" id="nameInput" value="Full Name" name="name"></h1>
 		

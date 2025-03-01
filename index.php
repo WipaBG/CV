@@ -3,6 +3,7 @@ require_once './controllers/userController.php';
 require_once './controllers/dataController.php';
 require_once './config/dbConfig.php';
 
+
 $action = isset($_GET['action']) ? $_GET['action'] : 'register';
 
 switch($action){

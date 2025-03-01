@@ -1,4 +1,6 @@
 <?php
+
+
 class User {
     private $conn;
     
@@ -25,7 +27,7 @@ class User {
         
         $stmt = $this->conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
         $stmt->bind_param("ss", $data['username'], $hashedPassword);
-        
+        echo "register";
         if ($stmt->execute()) {
             $user_id = $stmt->insert_id;
             // Start session if not already started

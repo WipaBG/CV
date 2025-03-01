@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Web CV</title>
-    <link rel="stylesheet" href="assests/css/homeform.css">
-    <script defer src="assests/js/home.js"></script>
+    <link rel="stylesheet" href="../assests//css/homeform.css">
+    <script defer src="../assests/js/home.js"></script>
 </head>
 <body>
     <button id='btn1' onclick="toggleTheme()">Toggle Theme</button>
