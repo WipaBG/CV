@@ -3,7 +3,7 @@
 
 <head>
     <title>CV Login Form</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="views/login.css">
 </head>
 
 <body>
