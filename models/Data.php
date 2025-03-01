@@ -17,14 +17,14 @@ class Data {
     }
 
     // Create a new entry in the database
-    public function createData($education, $skills, $projects, $experience, $image) {
-        $query = "INSERT INTO user_data (education, skills, projects, experience, Image) 
-                  VALUES (?, ?, ?, ?, ?)";
+    public function createData($name, $education, $skills, $projects, $experience, $image) {
+        $query = "INSERT INTO user_data (name, education, skills, projects, experience, Image) 
+                  VALUES (?, ?, ?, ?, ?, ?)";
         
         $stmt = $this->conn->prepare($query);
         
         // Bind the values to the statement
-        $stmt->bind_param("sssss", $education, $skills, $projects, $experience, $image);
+        $stmt->bind_param("ssssss",$name, $education, $skills, $projects, $experience, $image);
         
         // Execute the query
         if ($stmt->execute()) {

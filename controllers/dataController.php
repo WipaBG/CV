@@ -36,7 +36,7 @@ class dataController {
     // Method to handle creating new data
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            print_r($_POST);
+            $name = $_POST['name'];
             $education = $_POST['education'];
             $skills = $_POST['skill']; // Convert skills array to string
             $projects = $_POST['project'];
@@ -45,7 +45,7 @@ class dataController {
             $image = $_POST['image']; 
     
             // Insert the data into the database
-            $isCreated = $this->dataModel->createData($education, $skills, $projects, $experience, $image);
+            $isCreated = $this->dataModel->createData($name, $education, $skills, $projects, $experience, $image);
             
             if ($isCreated) {
                 echo "Data has been successfully saved!";
