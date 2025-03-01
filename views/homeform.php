@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Web CV</title>
-    <link rel="stylesheet" href="../assests/css/homeform.css">
-    <script defer src="../assests//js/home.js"></script>
+    <link rel="stylesheet" href="assests/css/homeform.css">
+    <script defer src="assests/js/home.js"></script>
 </head>
 <body>
    
@@ -16,14 +16,7 @@
         <p id="keyword">Skill| Passion | Hobby</p> 
     <section class="summary" id="summary">
         <img id="image" src="https://www.exscribe.com/wp-content/uploads/2021/08/placeholder-image-person-jpg.jpg" alt="Photograph of the user" width = "150" height="150">
-	 <p id="bio" rows='7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Morbi eget tempus turpis. Suspendisse eu ligula orci. Quisque sagittis posuere purus, vel rhoncus mi feugiat sit amet. 
-		Mauris posuere dapibus sapien, ut varius nibh mattis vitae. 
-		Pellentesque vel risus lectus. Nullam mattis nibh quam, et finibus massa ornare in. 
-		Nunc consequat tincidunt sapien posuere euismod. Nam commodo, metus eget pharetra ullamcorper, mi ex volutpat turpis, at commodo dui libero quis arcu.
-		Mauris eu tortor egestas, luctus turpis sit amet, commodo arcu. Maecenas pretium consectetur sapien id ultrices. 
-		Suspendisse potenti. Praesent non massa ac mi malesuada pulvinar. Nam a orci eget libero malesuada rhoncus vitae nec ante. 
-		Integer aliquet ipsum quis consectetur fringilla. Cras convallis est in dolor molestie, nec porttitor sem egestas.</p>
+	 <p id="bio" rows='7'><?= $education?></p>
     </section>
     
     <section id="skills">

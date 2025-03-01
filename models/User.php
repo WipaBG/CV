@@ -49,7 +49,7 @@ class User {
         
         // Declare variables before binding results
         $id = null;
-        $hashedPassword = null;
+        $hashedPassword = '';
         
         $stmt = $this->conn->prepare("SELECT id, password FROM users WHERE username = ?");
         $stmt->bind_param("s", $data['first']);
