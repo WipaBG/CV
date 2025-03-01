@@ -26,3 +26,15 @@ button {
     color: white;
     border-radius: 5px;
 }
+
+.summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.summary img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
