@@ -1,8 +1,16 @@
 <?php
+require_once './models/User.php';
 
 class userController{
     private $conn;
     private $userModel;
+
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
+        $this->userModel = new User($conn);
+
+    }
 
     public function viewRegister(){
         include './views/account.php';
@@ -28,17 +36,19 @@ class userController{
             if ($password !== $confirmPassword) {
                 $errors[] = "Passwords do not match";
             }
+
             
             // If validation passes, register the user
             if (empty($errors)) {
+
                 $userData = [
                     'username' => $username,
                     'password' => $password
                 ];
 
                 if ($this->userModel->register($userData)) {
+                    echo "test";
                     // Registration successful
-                    echo "success";
                 } else {
                     $errors[] = "Username already exists or registration failed";
                 }

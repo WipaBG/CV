@@ -8,8 +8,9 @@ class User {
     
     public function register($data) {
         // Check if username already exists
+        
         $checkStmt = $this->conn->prepare("SELECT id FROM users WHERE username = ?");
-        $checkStmt->bind_param("s", $data['first']);
+        $checkStmt->bind_param("s", $data['username']);
         $checkStmt->execute();
         $checkStmt->store_result();
         
@@ -42,7 +43,7 @@ class User {
     
     public function login($data) {
         // Check if username and password are provided
-        if (!isset($data['username']) || !isset($data['password'])) {
+        if (!isset($data['first']) || !isset($data['password'])) {
             return false;
         }
         
@@ -51,7 +52,7 @@ class User {
         $hashedPassword = null;
         
         $stmt = $this->conn->prepare("SELECT id, password FROM users WHERE username = ?");
-        $stmt->bind_param("s", $data['username']);
+        $stmt->bind_param("s", $data['first']);
         $stmt->execute();
         
         // Bind the result variables
