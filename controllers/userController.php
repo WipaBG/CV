@@ -18,9 +18,9 @@ class userController{
 
     public function handleRegister(){
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-
             $username = $_POST['first'];
             $password = $_POST['password'];
+
             $confirmPassword = $_POST['passwordC'];
 
             $errors = [];
@@ -45,7 +45,6 @@ class userController{
                     'username' => $username,
                     'password' => $password
                 ];
-
                 if ($this->userModel->register($userData)) {
                     echo "test";
                     // Registration successful
