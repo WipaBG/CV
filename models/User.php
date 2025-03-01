@@ -9,7 +9,7 @@ class User {
     public function register($data) {
         // Check if username already exists
         $checkStmt = $this->conn->prepare("SELECT id FROM users WHERE username = ?");
-        $checkStmt->bind_param("s", $data['username']);
+        $checkStmt->bind_param("s", $data['first']);
         $checkStmt->execute();
         $checkStmt->store_result();
         

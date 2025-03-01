@@ -10,7 +10,8 @@ class userController{
 
     public function handleRegister(){
         if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $username = $_POST['username'];
+
+            $username = $_POST['first'];
             $password = $_POST['password'];
             $confirmPassword = $_POST['passwordC'];
 
@@ -34,10 +35,10 @@ class userController{
                     'username' => $username,
                     'password' => $password
                 ];
+
                 if ($this->userModel->register($userData)) {
                     // Registration successful
-                    header("Location: dashboard.php");
-                    exit;
+                    echo "success";
                 } else {
                     $errors[] = "Username already exists or registration failed";
                 }

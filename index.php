@@ -8,6 +8,7 @@ switch($action){
     case 'register':
         $userController = new userController($conn);
         $userController->viewRegister();
+        $userController->handleRegister();
         break;
 }
 
