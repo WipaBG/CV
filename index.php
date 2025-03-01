@@ -11,6 +11,10 @@ switch($action){
         $userController->viewRegister();
         $userController->handleRegister();
         break;
+    case 'login':
+        $userController = new userController($conn);
+        $userController->viewLogin();
+        break;
     case 'homeForm':
         $dataController=  new dataController($conn);
         $dataController->index();

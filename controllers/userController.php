@@ -15,6 +15,9 @@ class userController{
     public function viewRegister(){
         include './views/account.php';
     }
+    public function viewLogin(){
+        include './views/login.php';
+    }
 
     public function handleRegister(){
         if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -46,7 +49,8 @@ class userController{
                     'password' => $password
                 ];
                 if ($this->userModel->register($userData)) {
-                    echo "test";
+                    header("Location: views/create.php");
+                    exit;
                     // Registration successful
                 } else {
                     $errors[] = "Username already exists or registration failed";
@@ -85,7 +89,7 @@ class userController{
                 
                 if ($this->userModel->login($userData)) {
                     // Login successful
-                    header("Location: dashboard.php");
+                    header("Location: views/create.php");
                     exit;
                 } else {
                     $errors[] = "Invalid username or password";
