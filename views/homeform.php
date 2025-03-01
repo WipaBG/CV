@@ -10,12 +10,13 @@
 <body>
    
 	<body>
-	<div class="main" >
+	 <button id='btn1' onclick="toggleTheme()">Toggle Theme</button>
+	<div class="main" id = "main" >
 	 <h1 id="name"> John Doe </h1>
         <p id="keyword">Skill| Passion | Hobby</p> 
     <section class="summary" id="summary">
         <img id="image" src="https://www.exscribe.com/wp-content/uploads/2021/08/placeholder-image-person-jpg.jpg" alt="Photograph of the user" width = "150" height="150">
-        <p id="bio" rows='7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	 <p id="bio" rows='7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 		Morbi eget tempus turpis. Suspendisse eu ligula orci. Quisque sagittis posuere purus, vel rhoncus mi feugiat sit amet. 
 		Mauris posuere dapibus sapien, ut varius nibh mattis vitae. 
 		Pellentesque vel risus lectus. Nullam mattis nibh quam, et finibus massa ornare in. 
@@ -62,10 +63,10 @@
 	 <section id="contact">
         <h2>Contact</h2>
         <form action="contact.php" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
+            <input id="id1" type="text" name="name" placeholder="Your Name" required>
+            <input id="id2" type="email" name="email" placeholder="Your Email" required>
+            <textarea id="id3" name="message" placeholder="Your Message"></textarea>
+            <button id='btn' type="submit">Send</button>
         </form>
    </div>
     </body>
