@@ -13,6 +13,7 @@ class dataController {
         $this->dataModel = new Data($conn);
     }
 
+    // Index method to display user data
     public function index() {
         // Fetch all data from the database
         $userData = $this->dataModel->getAll();
@@ -20,7 +21,6 @@ class dataController {
         // Close the database connection
         $this->conn->close();
 
-        print_r($userData);
         // Extract individual data from $userData
         $education = $userData['education'] ?? 'No education data available';
         $skills = $userData['skills'] ?? 'No skills data available';
@@ -28,10 +28,32 @@ class dataController {
         $experience = $userData['experience'] ?? 'No experience data available';
         $image = $userData['Image'] ?? 'No image data available';
 
-
-        
         // Pass data to the view
         include("views/homeform.php");
     }
+
+    // Method to handle creating new data
+    public function create() {
+        // Check if the form is submitted
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Sanitize input values
+            $education = $_POST['summary'];
+            $skills = $_POST['skills'];
+            $projects = $_POST['projects'];
+            $experience = $_POST['experience'];
+            $image = $_POST['image']; // Assuming the image URL or path is passed as text
+
+            // Call the model method to insert data
+            $isCreated = $this->dataModel->createData($education, $skills, $projects, $experience, $image);
+            
+            if ($isCreated) {
+                echo "Data has been successfully saved!";
+            } else {
+                echo "There was an error saving the data.";
+            }
+        }
+        include "views/create.php";
+    }
+    
 }
 ?>
