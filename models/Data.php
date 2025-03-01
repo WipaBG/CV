@@ -10,9 +10,14 @@ class Data{
     }
 
 
-    public function getData(){
-        
+    public function getEducation() {
+        $query = "SELECT * FROM data WHERE category = 'education' ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
     }
+
+    
 }
 
 
