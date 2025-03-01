@@ -13,7 +13,7 @@
 	 <button id='btn1' onclick="toggleTheme()">Toggle Theme</button>
 	<div class="main" id = "main" >
 	 <h1 id="name"> John Doe </h1>
-        <p id="keyword">Skill| Passion | Hobby</p> 
+       
     <section class="summary" id="summary">
         <img id="image" src="https://www.exscribe.com/wp-content/uploads/2021/08/placeholder-image-person-jpg.jpg" alt="Photograph of the user" width = "150" height="150">
 	 <p id="bio" rows='7'><?= $education?></p>
