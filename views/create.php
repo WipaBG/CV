@@ -11,7 +11,7 @@
    
 	<body>
 	<h3>Click on the fields to fill in your information.</h3>
-	<form class="main" action="">
+	<form class="main" action="index.php?action=createCV" method= "POST">
 	 <h1 id="name"> 
 		<input type="text" id="nameInput" value="Full Name" name="name"></h1>
 	<section class="image" id="image" name="image">

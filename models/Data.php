@@ -7,48 +7,31 @@ class Data {
         $this->conn = $conn;
     }
 
+    // Fetch all data from the database
     public function getAll() {
         $query = "SELECT education, skills, projects, experience, Image FROM user_data";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
-        $result = $stmt->get_result(); // Fetch result
+        $result = $stmt->get_result();
         return $result->fetch_assoc(); // Return as an associative array
     }
 
-    // public function getSkills() {
-    //     $query = "SELECT * FROM user_data WHERE category = 'skills' ORDER BY name ASC";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->execute();
-    //     $result = $stmt->get_result();
-    //     return $result->fetch_all(MYSQLI_ASSOC);
-    // }
-
-    // public function getProjects() {
-    //     $query = "SELECT * FROM user_data WHERE category = 'projects' ORDER BY completion_date DESC";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->execute();
-    //     $result = $stmt->get_result();
-    //     return $result->fetch_all(MYSQLI_ASSOC);
-    // }
-
-    // public function getExperience() {
-    //     $query = "SELECT * FROM user_data WHERE category = 'experience' ORDER BY start_date DESC";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->execute();
-    //     $result = $stmt->get_result();
-    //     return $result->fetch_all(MYSQLI_ASSOC);
-    // }
-
-    // public function getAll() {
-    //     return [
-    //         'education' => $this->getEducation(),
-    //         'skills' => $this->getSkills(),
-    //         'projects' => $this->getProjects(),
-    //         'experience' => $this->getExperience()
-    //     ];
-    // }
+    // Create a new entry in the database
+    public function createData($education, $skills, $projects, $experience, $image) {
+        $query = "INSERT INTO user_data (education, skills, projects, experience, Image) 
+                  VALUES (?, ?, ?, ?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        // Bind the values to the statement
+        $stmt->bind_param("sssss", $education, $skills, $projects, $experience, $image);
+        
+        // Execute the query
+        if ($stmt->execute()) {
+            return true; // Successfully inserted data
+        } else {
+            return false; // Error inserting data
+        }
+    }
 }
-
-
-
 ?>

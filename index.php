@@ -14,6 +14,9 @@ switch($action){
     case 'homeForm':
         $dataController=  new dataController($conn);
         $dataController->index();
+    case 'createCV':
+        $dataController = new dataController($conn);
+        $dataController->create();
         break;
     
 
