@@ -19,13 +19,16 @@ class dataController {
         
         // Close the database connection
         $this->conn->close();
-        
+
         print_r($userData);
         // Extract individual data from $userData
         $education = $userData['education'] ?? 'No education data available';
         $skills = $userData['skills'] ?? 'No skills data available';
         $projects = $userData['projects'] ?? 'No project data available';
         $experience = $userData['experience'] ?? 'No experience data available';
+        $image = $userData['Image'] ?? 'No image data available';
+
+
         
         // Pass data to the view
         include("views/homeform.php");

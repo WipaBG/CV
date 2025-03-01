@@ -14,7 +14,7 @@
         <p id="keyword">Skill | Passion | Hobby</p>
 
         <section class="summary" id="summary">
-            <img id="image" src="https://www.exscribe.com/wp-content/uploads/2021/08/placeholder-image-person-jpg.jpg" alt="Photograph of the user" width="150" height="150">
+            <img id="image" src=<?= $image?> alt="Photograph of the user" width="150" height="150">
             <p id="bio"><?= htmlspecialchars($education) ?></p> <!-- Display education -->
         </section>
         

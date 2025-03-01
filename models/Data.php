@@ -8,7 +8,7 @@ class Data {
     }
 
     public function getAll() {
-        $query = "SELECT education, skills, projects, experience FROM user_data";
+        $query = "SELECT education, skills, projects, experience, Image FROM user_data";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result(); // Fetch result
