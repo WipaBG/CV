@@ -9,7 +9,7 @@
 </head>
 <body>
    
-	<body>
+	
 	<h3>Click on the fields to fill in your information.</h3>
 	<form class="main" action="index.php?action=createCV" method= "POST">
 	        
@@ -46,5 +46,5 @@
     </button>
 	</form>
     </body>
-</body>
+
 </html>
