@@ -11,7 +11,7 @@
    
 	<body>
 	<h3>Click on the fields to fill in your information.</h3>
-	<form class="main" action="">
+	<form class="main" form method="POST" action="">
 	 <h1 id="name"> 
 		<input type="text" id="nameInput" value="Full Name"></h1>
         <input id="keyword" value="Insert keywords."> 
