@@ -21,7 +21,7 @@
 	<input type="text" id="image"  name="image" value="Insert url for CV photo">
 	</section>
     <section class="education" id="education">
-        <textarea id="bio" rows='7' name="education">Enter your education.</textarea>
+        <input id="bio" rows='7' name="education" value="Enter your education.">
     </section>
     
     <section id="skills">
