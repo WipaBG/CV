@@ -9,7 +9,7 @@ class Data {
 
     // Fetch all data from the database
     public function getAll() {
-        $query = "SELECT education, skills, projects, experience, Image FROM user_data";
+        $query = "SELECT name, education, skills, projects, experience, Image FROM user_data";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -33,5 +33,6 @@ class Data {
             return false; // Error inserting data
         }
     }
+    
 }
 ?>

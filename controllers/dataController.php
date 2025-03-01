@@ -22,6 +22,7 @@ class dataController {
         $this->conn->close();
 
         // Extract individual data from $userData
+        $name = $userData['name'] ?? 'No education data available';
         $education = $userData['education'] ?? 'No education data available';
         $skills = $userData['skills'] ?? 'No skills data available';
         $projects = $userData['projects'] ?? 'No project data available';
@@ -34,16 +35,15 @@ class dataController {
 
     // Method to handle creating new data
     public function create() {
-        // Check if the form is submitted
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Sanitize input values
-            $education = $_POST['summary'];
-            $skills = $_POST['skills'];
+            
+            $education = $_POST['education'];
+            $skills = isset($_POST['skill']) ? implode(',', $_POST['skill']) : ''; // Convert skills array to string
             $projects = $_POST['projects'];
             $experience = $_POST['experience'];
-            $image = $_POST['image']; // Assuming the image URL or path is passed as text
-
-            // Call the model method to insert data
+            $image = $_POST['image']; 
+    
+            // Insert the data into the database
             $isCreated = $this->dataModel->createData($education, $skills, $projects, $experience, $image);
             
             if ($isCreated) {
@@ -52,6 +52,8 @@ class dataController {
                 echo "There was an error saving the data.";
             }
         }
+    
+    
         include "views/create.php";
     }
     

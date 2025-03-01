@@ -10,7 +10,7 @@
 <body>
     <button id='btn1' onclick="toggleTheme()">Toggle Theme</button>
     <div class="main" id="main">
-        <h1 id="name">John Doe</h1>
+        <h1 id="name"><?= $name ?></h1>
         <p id="keyword">Skill | Passion | Hobby</p>
 
         <section class="summary" id="summary">
