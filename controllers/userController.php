@@ -4,6 +4,9 @@ class userController{
     private $conn;
     private $userModel;
 
+    public function viewRegister(){
+        include './views/account.php';
+    }
 
     public function handleRegister(){
         if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -18,8 +21,6 @@ class userController{
             }
             if (empty($password)) {
                 $errors[] = "Password is required";
-            } elseif (strlen($password) < 6) {
-                $errors[] = "Password must be at least 6 characters";
             }
             
             // Confirm passwords match
@@ -45,6 +46,68 @@ class userController{
             return $errors;
         }
         return [];
+
+    }
+
+    public function handleLogin(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+            // Validate input
+            $username = trim($_POST['username'] ?? '');
+            $password = $_POST['password'] ?? '';
+            
+            $errors = [];
+            
+            // Validate username and password
+            if (empty($username)) {
+                $errors[] = "Username is required";
+            }
+            
+            if (empty($password)) {
+                $errors[] = "Password is required";
+            }
+            
+            // If validation passes, attempt login
+            if (empty($errors)) {
+                $userData = [
+                    'username' => $username,
+                    'password' => $password
+                ];
+                
+                if ($this->userModel->login($userData)) {
+                    // Login successful
+                    header("Location: dashboard.php");
+                    exit;
+                } else {
+                    $errors[] = "Invalid username or password";
+                }
+            }
+            
+            return $errors;
+        }
+        
+        return [];
+    }
+
+    public function handleLogout() {
+        if (isset($_GET['logout'])) {
+            $this->userModel->logout();
+            header("Location: login.php");
+            exit;
+        }
+    }
+    
+    public function getCurrentUser() {
+        if ($this->userModel->isLoggedIn()) {
+            return $this->userModel->getUserById($_SESSION['user_id']);
+        }
+        return null;
+    }
+    
+    public function requireLogin() {
+        if (!$this->userModel->isLoggedIn()) {
+            header("Location: login.php");
+            exit;
+        }
     }
 }
 
